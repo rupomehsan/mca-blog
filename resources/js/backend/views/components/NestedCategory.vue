@@ -45,7 +45,7 @@ export default {
         }),
         showSubCategory() {
             let target = event.target;
-            target.parentNode.parentNode.nextSibling.classList.toggle(
+            target.parentNode?.parentNode?.nextSibling?.classList?.toggle(
                 "d-block"
             );
         },

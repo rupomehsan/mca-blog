@@ -13,14 +13,12 @@ export default {
         },
     },
     created() {
-        this.initialiteSummerNote('description')
-        this.summerNoteTooltip('Style', 'dropdown-style')
-        this.summerNoteTooltip('Font Family', 'dropdown-fontname')
-        this.summerNoteTooltip('More Color', 'note-color')
-        this.summerNoteTooltip('Paragraph', 'note-color')
-        this.summerNoteTooltip('Table', 'note-table')
-
-
+        this.initialiteSummerNote(this.name);
+        this.summerNoteTooltip("Style", "dropdown-style");
+        this.summerNoteTooltip("Font Family", "dropdown-fontname");
+        this.summerNoteTooltip("More Color", "note-color");
+        this.summerNoteTooltip("Paragraph", "note-color");
+        this.summerNoteTooltip("Table", "note-table");
     },
     methods: {
         initialiteSummerNote(id) {
@@ -29,22 +27,27 @@ export default {
                     height: 216,
                     tabsize: 2,
                 });
-            }, 1000)
+            }, 1000);
         },
         summerNoteTooltip(style, classname) {
             setTimeout(function () {
-                let target = document.querySelector(`[data-bs-original-title="${style}"]`);
+                let target = document.querySelector(
+                    `[data-bs-original-title="${style}"]`
+                );
                 let targetClass = document.querySelector(`.${classname}`);
-                target.addEventListener('click', function () {
-                    targetClass.classList.toggle('show');
-                    if (classname == 'note-color' || classname == 'note-table') {
-                        target.nextSibling.classList.toggle('show')
+                target.addEventListener("click", function () {
+                    targetClass.classList.toggle("show");
+                    if (
+                        classname == "note-color" ||
+                        classname == "note-table"
+                    ) {
+                        target.nextSibling.classList.toggle("show");
                     }
                 });
-            }, 1000)
+            }, 1000);
         },
-    }
-}
+    },
+};
 </script>
 
 <style>

@@ -19,7 +19,7 @@
             <li><a href="#"><span class="fa fa-twitter"></span></a></li>
             <li><a href="#"><span class="fa fa-youtube-play"></span></a></li>
         </ul>
-        <div class="copyright">&copy; All Right Reserved 2020</div>
+        <div class="copyright">&copy; All Right Reserved 2024</div>
     </div>
 </footer>
 

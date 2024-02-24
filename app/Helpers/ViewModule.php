@@ -311,7 +311,7 @@ if (!function_exists('ViewFormField')) {
                 name: "image",
                 label: "Upload your image",
                 type: "file",
-                value: null,
+                value: '',
                 multiple: false,
             },
             {
@@ -438,7 +438,7 @@ if (!function_exists('ViewStore')) {
                 all_data: {},
                 single_data: {},
                 role_data: {},
-                api:"{$apiName}/"
+                api:"{$apiName}"
             }),
             getters: {
                 doubleCount: (state) => state.count * 2,
@@ -456,7 +456,7 @@ if (!function_exists('ViewStore')) {
                 },
 
                 get: async function (id) {
-                    let response = await axios.get(this.api+id);
+                    let response = await axios.get(`\${this.api}/\${id}`);
                     response = response.data.data;
                     this.single_data = response;
                 },
@@ -469,21 +469,21 @@ if (!function_exists('ViewStore')) {
 
                 update: async function (form, id) {
                     let formData = new FormData(form);
-                    let response = await axios.post(`\${this.api}\${id}?_method=PATCH`, formData);
+                    let response = await axios.post(`\${this.api}/\${id}?_method=PATCH`, formData);
                     return response;
                 },
 
                 delete: async function (id) {
                     var data = await window.s_confirm();
                     if (data) {
-                        let response = await axios.delete(this.api+id);
+                        let response = await axios.delete(`\${this.api}/\${id}`);
                         window.s_alert("Data deleted");
                         this.all();
                         console.log(response.data);
                     }
                 },
                 bulk_action: async function (action, data) {
-                    let response = await axios.post(`\${this.api}bulk-action`, { action, data })
+                    let response = await axios.post(`\${this.api}/bulk-action`, { action, data })
                     if (response.data.status === "success") {
                         window.s_alert(response.data.message);
                         this.all();

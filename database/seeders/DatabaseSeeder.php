@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Modules\BlogManagement\Category\Seeder as CategorySeeder;
+use App\Modules\Category\Seeder as CategorySeeder;
 use App\Modules\User\Seeder as UserSeeder;
+use App\Modules\WebsiteSetting\Seeder as WebsiteSetting;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,7 +18,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            CategorySeeder::class
+            CategorySeeder::class,
+            WebsiteSetting::class,
         ]);
     }
 }

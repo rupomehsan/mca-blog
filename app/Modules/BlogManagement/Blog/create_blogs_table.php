@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->text('description')->nullable();
+            $table->longText('description')->nullable();
             $table->text('tags')->nullable();
             $table->date('publish_date')->nullable();
             $table->string('writer')->nullable();
@@ -33,6 +33,30 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('blog_comments', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('blog_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('reply_id')->nullable();
+            $table->bigInteger('like')->nullable();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->text('comment')->nullable();
+            $table->bigInteger('ip')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('blog_views', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('ip')->nullable();
+            $table->bigInteger('blog_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('like')->nullable();
+            $table->bigInteger('view')->nullable();
+            $table->timestamps();
+        });
+
         Schema::create('blog_post_categories', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('blog_id')->nullable();
@@ -47,6 +71,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('blogs');
-        Schema::dropIfExists('blog_categories');
+        Schema::dropIfExists('blog_post_categories');
+        Schema::dropIfExists('blog_comments');
+        Schema::dropIfExists('blog_views');
     }
 };

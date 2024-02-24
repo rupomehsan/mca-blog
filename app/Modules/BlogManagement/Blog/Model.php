@@ -3,12 +3,14 @@
 namespace App\Modules\BlogManagement\Blog;
 
 use Illuminate\Database\Eloquent\Model as EloquentModel;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 
 class Model extends EloquentModel
 {
-    static $model = \App\Modules\BlogManagement\Category\Model::class;
+    static $model = \App\Modules\Category\Model::class;
+    static $BlogViewModel = \App\Modules\BlogManagement\Blog\BlogViewModel::class;
 
     protected $table = "blogs";
     protected $guarded = [];
@@ -31,5 +33,9 @@ class Model extends EloquentModel
     public function categories()
     {
         return $this->belongsToMany(self::$model, 'blog_post_categories', 'blog_id', 'blog_category_id');
+    }
+    public function view()
+    {
+        return $this->hasMany(self::$BlogViewModel,  'blog_id');
     }
 }

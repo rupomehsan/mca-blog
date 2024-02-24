@@ -14,7 +14,7 @@ class Update
     {
         try {
 
-
+        
             if (!$data = self::$model::query()->where('id', $id)->first()) {
                 return messageResponse('Data not found...', 404, 'error');
             }

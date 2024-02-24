@@ -15,6 +15,7 @@ class Store
     {
         try {
             $blog_category_id = json_decode($request->blog_category_id);
+            dd($blog_category_id);
             $reqtags = json_decode($request->tags);
             $tags = null;
 

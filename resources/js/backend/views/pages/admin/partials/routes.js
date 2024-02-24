@@ -2,9 +2,11 @@ import Layout from "./Layout.vue";
 import Dashboard from "../Dashboard.vue";
 
 import user_routes from "../management/user/setup/routes";
-
-import blog_category_routes from "../management/BlogManagement/Category/setup/routes";
+import category_routes from "../management/Category/setup/routes";
 import blog_routes from "../management/BlogManagement/Blog/setup/routes";
+import course_routes from "../management/CourseManagement/Course/setup/routes";
+import slider_routes from "../management/Slider/setup/routes";
+import site_settings_routes from "../management/WebsiteSetting/setup/routes";
 
 const routes = {
     path: "/",
@@ -15,10 +17,12 @@ const routes = {
             component: Dashboard,
             name: "adminDashboard",
         },
-
         user_routes,
-        blog_category_routes,
+        category_routes,
         blog_routes,
+        course_routes,
+        slider_routes,
+        site_settings_routes,
     ],
 };
 
