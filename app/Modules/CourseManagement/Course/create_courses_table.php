@@ -30,6 +30,7 @@ return new class extends Migration
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
+
         Schema::create('apply_courses', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('course_id')->nullable();
@@ -42,6 +43,30 @@ return new class extends Migration
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
+
+        Schema::create('course_views', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('ip')->nullable();
+            $table->bigInteger('course_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('like')->nullable();
+            $table->bigInteger('view')->nullable();
+            $table->timestamps();
+        });
+        Schema::create('course_comments', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('course_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('reply_id')->nullable();
+            $table->bigInteger('like')->nullable();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->text('comment')->nullable();
+            $table->bigInteger('ip')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->timestamps();
+        });
     }
 
 
@@ -51,5 +76,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('courses');
+        Schema::dropIfExists('course_views');
+        Schema::dropIfExists('course_comments');
     }
 };

@@ -27,6 +27,6 @@ class Model extends EloquentModel
     }
     public function categories()
     {
-        return $this->belongsToMany(self::$model, 'course_post_categories', 'course_id', 'course_category_id');
+        return $this->belongsTo(self::$model, 'category_id');
     }
 }

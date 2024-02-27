@@ -61,7 +61,7 @@
                                     </td> -->
                                     <!-- <td class="text-start">{{ index + 1 }}</td> -->
                                     <td>{{ item.field_title }}</td>
-                                    <template v-if="item.is_image">
+                                    <template v-if="item.is_image == 1">
                                         <td>
                                             <img :src="item.field_value" height="50" width="60" style="object-fit:contain"
                                                 class="">

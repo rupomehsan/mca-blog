@@ -44,6 +44,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->text('comment')->nullable();
             $table->bigInteger('ip')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
 

@@ -12,6 +12,7 @@ class HomeController extends Controller
     static $model = \App\Modules\WebsiteSetting\VisitorCountModel::class;
     static $sliderModel = \App\Modules\Slider\Model::class;
     static $blogModel = \App\Modules\BlogManagement\Blog\Model::class;
+    static $courseModel = \App\Modules\CourseManagement\Course\Model::class;
     public function index()
     {
         self::$model::create(['ip' => request()->ip()]);
@@ -31,7 +32,8 @@ class HomeController extends Controller
     }
     public function course()
     {
-        return view('frontend.pages.course.index');
+        $courses = self::$courseModel::with('categories')->limit(8)->orderBy('id', 'desc')->paginate(2);
+        return view('frontend.pages.course.index', compact('courses'));
     }
     public function courseDetails($slug)
     {
@@ -40,7 +42,8 @@ class HomeController extends Controller
 
     public function blog()
     {
-        return view('frontend.pages.blog.index');
+        $blogs = self::$blogModel::with('categories')->limit(8)->orderBy('id', 'desc')->withCount('view')->paginate(4);
+        return view('frontend.pages.blog.index', compact('blogs'));
     }
     public function blogDetails($slug)
     {
