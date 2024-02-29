@@ -5,10 +5,11 @@ export default [
         type: "text",
         value: "",
     },
+
     {
         name: "field_value",
         label: "Enter your  value",
-        type: "textarea",
+        type: "text",
         value: "",
     },
 ];

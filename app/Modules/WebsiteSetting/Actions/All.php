@@ -25,7 +25,7 @@ class All
             if (request()->has('get_all') && (int)request()->input('get_all') === 1) {
                 $data = $data->with($with)->where($condition)->latest()->get();
             } else {
-                $data = $data->with($with)->where($condition)->latest()->paginate($offset);
+                $data = $data->with($with)->where($condition)->orderBy('id','ASC')->latest()->paginate($offset);
             }
             return entityResponse($data);
         } catch (\Exception $e) {

@@ -5,23 +5,18 @@
 
 <head>
     <meta charset="utf-8">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Modern Cooking Academy</title>
     <!-- Stylesheets -->
     <link href="{{ asset('frontend') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ asset('frontend') }}/css/main.css" rel="stylesheet">
     <link href="{{ asset('frontend') }}/css/responsive.css" rel="stylesheet">
-
     <link rel="shortcut icon" href="{{ asset('frontend') }}/images/logo.png" type="image/x-icon">
     <link rel="icon" href="{{ asset('frontend') }}/images/logo.png" type="image/x-icon">
-
-    <!-- Responsive -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
-    <!-- Global site tag (gtag.js) - Google Ads: 10793544805 -->
+    @stack('custom-css')
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10793544805"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -55,8 +50,8 @@
                             <div class="logo">
                                 <a href="{{ route('home') }}">
                                     <img class="rounded-circle" style="height: 80px ;width:80px;object-fit:contain"
-                                        src="{{ asset('frontend') }}/images/logo.png" alt="" title="">
-                                    <h1 class="navbar-brand ">Modern Cooking Academy</h1>
+                                        src="{{  $web_settings['site logo']  }}" alt="" title="">
+                                    <h1 class="navbar-brand ">{{ $web_settings['site title']}}</h1>
                                 </a>
                             </div>
                         </div>

@@ -12,14 +12,17 @@
             <li><a href="{{ route('course') }}">Our Courses</a></li>
             <li><a href="{{ route('contact') }}">Contact us</a></li>
         </ul>
+
         <ul class="social-box">
-            <li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-            <li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
-            <li><a href="#"><span class="fa fa-instagram"></span></a></li>
-            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-            <li><a href="#"><span class="fa fa-youtube-play"></span></a></li>
+            <li><a href="{{ $web_settings['facebook'] }}" target="_blank"><span class="fa fa-facebook-f"></span></a>
+            </li>
+            <li><a href="{{ $web_settings['instagram'] }}" target="_blank"><span class="fa fa-instagram"></span></a>
+            </li>
+            <li><a href="{{ $web_settings['twitter']}}" target="_blank"><span class="fa fa-twitter"></span></a></li>
+            <li><a href="{{ $web_settings['youtube']}}" target="_blank"><span class="fa fa-youtube-play"></span></a>
+            </li>
         </ul>
-        <div class="copyright">&copy; All Right Reserved 2024</div>
+        <div class="copyright">{{ $web_settings['copyright']}}</div>
     </div>
 </footer>
 
@@ -39,7 +42,7 @@
 <script src="{{ asset('frontend') }}/js/wow.js"></script>
 <script src="{{ asset('frontend') }}/js/jquery-ui.js"></script>
 <script src="{{ asset('frontend') }}/js/script.js"></script>
-
+@stack('custom-js')
 </body>
 
 <!-- Mirrored from gico.io/spcica/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Feb 2024 19:54:14 GMT -->

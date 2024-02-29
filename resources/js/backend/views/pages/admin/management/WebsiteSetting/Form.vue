@@ -63,15 +63,18 @@ export default {
                             field.name == "field_value" &&
                             value[0] == "field_value"
                         ) {
-                            $("#field_value").summernote("code", value[1]);
+                            // $("#field_value").summernote("code", value[1]);
                         }
                     });
                 });
                 if (this.single_data.is_image && this.single_data.is_image == 1) {
 
                     let target = document.getElementById('formField')
-                    let summerNoteHide = document.querySelector('[class="note-editor note-frame card"]')
-                    summerNoteHide.closest('.col-md-12').classList.add('d-none')
+                    // let summerNoteHide = document.querySelector('[class="note-editor note-frame card"]')
+                    // summerNoteHide.closest('.col-md-12').classList.add('d-none')
+                    let field = document.getElementById('field_value')
+                    field.parentElement?.parentElement?.classList.add('d-none')
+
                     let element = `
                               <img src="${this.single_data.field_value}" height='60' width='100' style=object-fit:contain>
                               <div class="form-group">
@@ -105,7 +108,7 @@ export default {
 
         submitHandler: async function ($event) {
             if (this.param_id) {
-                this.setSummerEditor();
+                // this.setSummerEditor();
                 let response = await this.update_data(
                     $event.target,
                     this.param_id
@@ -115,7 +118,7 @@ export default {
                     this.$router.push({ name: `All${this.route_prefix}` });
                 }
             } else {
-                this.setSummerEditor();
+                // this.setSummerEditor();
                 let response = await this.store_data($event.target);
                 if (response.data.status === "success") {
                     window.s_alert(response.data.message);
@@ -135,7 +138,7 @@ export default {
             target.setAttribute('disabled', true)
         },
         changeInputField(item) {
-            console.log(item);
+            // console.log(item);
         }
     },
 

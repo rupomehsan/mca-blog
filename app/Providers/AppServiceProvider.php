@@ -10,9 +10,9 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
+    static $model = \App\Modules\WebsiteSetting\Model::class;
     public function register(): void
     {
-        //
     }
 
     /**
@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $settings = self::$model::pluck('field_value', 'field_title')->toArray();
+        view()->share('web_settings', $settings);
         Paginator::useBootstrap();
     }
 }

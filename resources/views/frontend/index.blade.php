@@ -368,56 +368,7 @@
 
 
 
-<!-- Clients Section -->
-<section class="clients-section">
-    <div class="auto-container">
-        <div class="sec-title centered">
-            <h2>Our Partners </h2>
-        </div>
-        <div class="sponsors-outer">
-            <!--Sponsors Carousel-->
-            <ul class="sponsors-carousel owl-carousel owl-theme">
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="{{ asset('frontend') }}/images/clients/1.png"
-                                alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="{{ asset('frontend') }}/images/clients/2.png"
-                                alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="{{ asset('frontend') }}/images/clients/3.png"
-                                alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="{{ asset('frontend') }}/images/clients/4.png"
-                                alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="{{ asset('frontend') }}/images/clients/5.png"
-                                alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="{{ asset('frontend') }}/images/clients/1.png"
-                                alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="{{ asset('frontend') }}/images/clients/2.png"
-                                alt=""></a>
-                    </figure>
-                </li>
-            </ul>
-        </div>
 
-    </div>
-</section>
-<!-- End Clients Section -->
 
 <!-- Subscribe Section -->
 <section class="subscribe-section">
@@ -444,9 +395,9 @@
                 <h1>Visit our store</h1>
 
                 <ul class="subscribe-list">
-                    <li>Address : House #05, Avenue#01, Section-10, Mirpur, Dhaka-1216 </li><br>
-                    <li>Email : mcaedu2024@gmail.com </li><br>
-                    <li>Phone : 01333322657,01333322658 </li><br>
+                    <li>Address : {{$web_settings['address']}} </li><br>
+                    <li>Email : {{ isset($web_settings['gmail']) ? $web_settings['gmail'] : ' N/A'}}</li><br>
+                    <li>Phone : {{$web_settings['contact number']}} </li><br>
                 </ul>
             </div>
 

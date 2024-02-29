@@ -33,6 +33,11 @@ class Seeder extends SeedersSeeder
                 'field_value' => 'https://www.facebook.com/moderncookingacademy',
             ],
             [
+                'field_title' => 'facebook',
+                'field_value' => 'https://www.facebook.com/moderncookingacademy
+                ',
+            ],
+            [
                 'field_title' => 'youtube',
                 'field_value' => 'https://www.youtube.com/@moderncookingacademy
                 ',
