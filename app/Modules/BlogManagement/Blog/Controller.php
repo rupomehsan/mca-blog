@@ -9,8 +9,9 @@ use App\Modules\BlogManagement\Blog\Actions\Store;
 use App\Modules\BlogManagement\Blog\Actions\Update;
 use App\Modules\BlogManagement\Blog\Actions\Validation;
 use App\Modules\BlogManagement\Blog\Actions\BulkActions;
+use App\Modules\BlogManagement\Blog\Actions\BlogComment;
 use App\Http\Controllers\Controller as ControllersController;
-
+use App\Modules\BlogManagement\Blog\Actions\CommentValidation;
 
 class Controller extends ControllersController
 {
@@ -49,5 +50,14 @@ class Controller extends ControllersController
         $data = BulkActions::execute();
         return $data;
     }
-
+    public function blogComment(CommentValidation $request)
+    {
+        $data = BlogComment::execute($request);
+        return $data;
+    }
+    public function getBlogCommentByBlogId($slug)
+    {
+        $data = BlogComment::getBlogCommentByBlogId($slug);
+        return $data;
+    }
 }

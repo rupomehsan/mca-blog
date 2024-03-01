@@ -30,7 +30,7 @@ class Seeder extends SeedersSeeder
             ],
             [
                 'field_title' => 'address',
-                'field_value' => 'https://www.facebook.com/moderncookingacademy',
+                'field_value' => 'House #05, Avenue#01, Section-10, Mirpur, Dhaka-1216',
             ],
             [
                 'field_title' => 'facebook',
@@ -53,6 +53,10 @@ class Seeder extends SeedersSeeder
             [
                 'field_title' => 'gmail',
                 'field_value' => 'moderncookingacademy@gmail.com',
+            ],
+            [
+                'field_title' => 'copyright',
+                'field_value' => '© All Right Reserved 2024',
             ],
 
         ];

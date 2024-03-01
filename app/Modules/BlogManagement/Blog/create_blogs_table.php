@@ -39,6 +39,7 @@ return new class extends Migration
             $table->bigInteger('user_id')->nullable();
             $table->bigInteger('reply_id')->nullable();
             $table->bigInteger('like')->nullable();
+            $table->bigInteger('rating')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();

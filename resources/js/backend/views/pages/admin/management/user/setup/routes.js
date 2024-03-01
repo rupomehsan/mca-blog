@@ -1,27 +1,20 @@
 import setup from ".";
 import All from "../All.vue";
-import Form from "../Form.vue";
+import ProfileUpdate from "../ProfileUpdate.vue";
 import Layout from "./Layout.vue";
 
 let route_prefix = setup.route_prefix;
 
-const routes =
-{
-    path: 'users',
+const routes = {
+    path: "user-profile",
     component: Layout,
     children: [
         {
-            path: '',
-            name: "All" + route_prefix,
-            component: All,
+            path: "",
+            name: "ProfileUpdate",
+            component: ProfileUpdate,
         },
-        {
-            path: "create",
-            name: "Create" + route_prefix,
-            component: Form,
-        },
-    ]
+    ],
 };
-
 
 export default routes;

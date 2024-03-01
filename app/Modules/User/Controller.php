@@ -11,7 +11,8 @@ use App\Modules\User\Actions\Validation;
 use App\Modules\User\Actions\BulkActions;
 use \App\Modules\User\Model as User;
 use App\Http\Controllers\Controller as ControllersController;
-
+use App\Modules\User\Actions\ProfileUpdate;
+use App\Modules\User\Actions\ProfileValidation;
 
 class Controller extends ControllersController
 {
@@ -48,6 +49,11 @@ class Controller extends ControllersController
     public function BulkActions()
     {
         $data = BulkActions::execute();
+        return $data;
+    }
+    public function ProfileUpdate(ProfileValidation $request)
+    {
+        $data = ProfileUpdate::execute($request);
         return $data;
     }
 }

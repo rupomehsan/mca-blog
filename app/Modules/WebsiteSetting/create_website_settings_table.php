@@ -28,14 +28,6 @@ return new class extends Migration
             $table->string('ip')->nullable();
             $table->timestamps();
         });
-        Schema::create('contact_us', function (Blueprint $table) {
-            $table->id();
-            $table->string('subject')->nullable();
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('message')->nullable();
-            $table->timestamps();
-        });
     }
 
     /**

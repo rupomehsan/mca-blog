@@ -11,8 +11,7 @@ use App\Modules\WebsiteSetting\Actions\Validation;
 use App\Modules\WebsiteSetting\Actions\BulkActions;
 use App\Modules\WebsiteSetting\Actions\DashboardAnalytics;
 use App\Http\Controllers\Controller as ControllersController;
-use App\Modules\WebsiteSetting\Actions\Contact;
-use App\Modules\WebsiteSetting\Actions\ContactValidation;
+
 
 class Controller extends ControllersController
 {
@@ -54,11 +53,6 @@ class Controller extends ControllersController
     public function dashboardAnalytics()
     {
         $data = DashboardAnalytics::execute();
-        return $data;
-    }
-    public function contactInfoSubmit(ContactValidation $request)
-    {
-        $data = Contact::execute($request);
         return $data;
     }
 }

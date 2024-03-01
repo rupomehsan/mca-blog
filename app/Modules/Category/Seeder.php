@@ -19,7 +19,7 @@ class Seeder extends SeedersSeeder
             "for" => "blog",
         ]);
         self::$model::create([
-            "title" => "Diploma",
+            "title" => "Professional Chef",
             "for" => "course",
         ]);
     }

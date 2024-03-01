@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Modules\WebsiteSetting\Actions;
+namespace App\Modules\Contactus\Actions;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Validation\Rule;
 
-class ContactValidation extends FormRequest
+class Validation extends FormRequest
 {
     /**
      * Determine if the  is authorized to make this request.

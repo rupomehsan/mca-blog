@@ -20,7 +20,8 @@ class HomeController extends Controller
         $allSliders = self::$sliderModel::limit(5)->get();
         $populerBlog = self::$blogModel::with('categories')->limit(8)->orderBy('id', 'desc')->withCount('view')->get();
         $trendingBlog = self::$blogModel::limit(8)->orderBy('id', 'asc')->withCount('view')->get();
-        return view('frontend.index', compact('allSliders', 'populerBlog', 'trendingBlog'));
+        $allCourse = self::$courseModel::with('categories')->limit(8)->orderBy('id', 'asc')->get();
+        return view('frontend.index', compact('allSliders', 'populerBlog', 'trendingBlog', 'allCourse'));
     }
     public function contact()
     {
@@ -37,7 +38,8 @@ class HomeController extends Controller
     }
     public function courseDetails($slug)
     {
-        return view('frontend.pages.course.course_details');
+        $singleCourse = self::$courseModel::with('categories')->where('slug', $slug)->first();
+        return view('frontend.pages.course.course_details', compact('singleCourse'));
     }
 
     public function blog()
@@ -47,7 +49,11 @@ class HomeController extends Controller
     }
     public function blogDetails($slug)
     {
-        $singleBlog = self::$blogModel::where('slug', $slug)->first();
+        $singleBlog = self::$blogModel::with('categories')->where('slug', $slug)->withCount('view')->first();
+        $relatedBlogs = self::$blogModel::whereHas('categories', function ($query) use ($singleBlog) {
+            $query->whereIn('blog_category_id', $singleBlog->categories->pluck('id')->toArray());
+        })->with('categories')->withCount('view')->get();
+
         if ($singleBlog) {
             DB::table('blog_views')->insert([
                 'blog_id' => $singleBlog->id,
@@ -57,7 +63,7 @@ class HomeController extends Controller
 
             ]);
             // dd($singleBlog);
-            return view('frontend.pages.blog.blog_details', compact('singleBlog'));
+            return view('frontend.pages.blog.blog_details', compact('singleBlog', 'relatedBlogs'));
         } else {
             return redirect()->route('not-found');
         }

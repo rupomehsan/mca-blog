@@ -7,6 +7,7 @@ import blog_routes from "../management/BlogManagement/Blog/setup/routes";
 import course_routes from "../management/CourseManagement/Course/setup/routes";
 import slider_routes from "../management/Slider/setup/routes";
 import site_settings_routes from "../management/WebsiteSetting/setup/routes";
+import contactus_routes from "../management/Contactus/setup/routes";
 
 const routes = {
     path: "/",
@@ -23,6 +24,7 @@ const routes = {
         course_routes,
         slider_routes,
         site_settings_routes,
+        contactus_routes,
     ],
 };
 

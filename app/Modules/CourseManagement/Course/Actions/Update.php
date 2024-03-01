@@ -21,7 +21,7 @@ class Update
             $reqtags = json_decode($request->tags);
             $tags = null;
 
-            $imageName = $data->thumbnail_image;
+            $imageName = $data->image;
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $currentDate = now()->format('Y/m');

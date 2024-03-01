@@ -52,6 +52,12 @@
                         </li>
 
                         <li class="dropdown-divider"></li>
+                        <li class="dropdown-item">
+                            <router-link :to="{ name: 'ProfileUpdate' }">
+                                <i class="zmdi zmdi-settings mr-3"></i>Profile
+                                Setting
+                            </router-link>
+                        </li>
                         <li
                             class="dropdown-item"
                             s

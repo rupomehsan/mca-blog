@@ -50,8 +50,8 @@
                             <div class="logo">
                                 <a href="{{ route('home') }}">
                                     <img class="rounded-circle" style="height: 80px ;width:80px;object-fit:contain"
-                                        src="{{  $web_settings['site logo']  }}" alt="" title="">
-                                    <h1 class="navbar-brand ">{{ $web_settings['site title']}}</h1>
+                                        src="{{ asset($web_settings['site logo']) }}" alt="Logo" title="">
+                                    <h1 class="navbar-brand ">{{ $web_settings['site title'] }}</h1>
                                 </a>
                             </div>
                         </div>

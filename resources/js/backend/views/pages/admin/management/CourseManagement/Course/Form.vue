@@ -58,6 +58,7 @@ export default {
         form_fields,
         param_id: null,
         modal_show: false,
+        loaded: false,
     }),
     created: async function () {
         let id = this.$route.query.id;
@@ -66,20 +67,22 @@ export default {
         await this.get_all_course_categories();
         await this.get_all_data();
 
+        this.loaded = true;
+
         if (
             this.all_course_categories_data &&
             this.all_course_categories_data.length
         ) {
-            this.all_course_categories_data.forEach((data) => {
-                this.form_fields.forEach((field) => {
-                    if (field.name == "blog_category_id") {
-                        field.data_list = [];
+            this.form_fields.forEach((field) => {
+                if (field.name == "category_id") {
+                    field.data_list = [];
+                    this.all_course_categories_data.forEach((data) => {
                         let dataList = {};
                         (dataList.label = data.title),
                             (dataList.value = data.id);
                         field.data_list.push(dataList);
-                    }
-                });
+                    });
+                }
             });
         }
 
@@ -98,53 +101,13 @@ export default {
                         ) {
                             $("#description").summernote("code", value[1]);
                         }
-
-                        if (value[0] == "categories") {
-                            this.child_parent_id = [];
-                            value[1].forEach((item) => {
-                                this.child_parent_id.push(item.id);
-                            });
-                        }
                     });
-                });
-
-                Object.entries(this.single_data).forEach((value) => {
-                    if (value[0] == "categories") {
-                        value[1].forEach((item) => {
-                            this.set_categories(item);
-                        });
-                    }
-                });
-
-                Object.entries(this.single_data).forEach((value) => {
-                    if (value[0] == "tags") {
-                        let tagData = value[1]?.split(",");
-                        tagData?.pop();
-
-                        tagData?.forEach((item) => {
-                            this.set_tags(item);
-                        });
-                    }
                 });
             }
         } else {
             this.form_fields.forEach((item) => {
                 item.value = "";
-
-                if (item.name == "category_id") {
-                    if (this.all_course_categories_data) {
-                        item.data_list = [];
-                        this.all_course_categories_data.forEach((data) => {
-                            let dataList = [];
-                            dataList.label = data.title;
-                            dataList.value = data.id;
-                            item.data_list.push(dataList);
-                        });
-                    }
-                }
             });
-
-            this.set_tags("empty");
         }
     },
     methods: {

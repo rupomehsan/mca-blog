@@ -1,53 +1,20 @@
 export default [
     {
-        name: "name",
-        label: "Enter your full name",
+        name: "current_password",
+        label: "Enter your current password",
         type: "text",
         value: "",
     },
     {
-        name: "email",
-        label: "Enter your email",
-        type: "email",
-        value: "",
-    },
-    {
-        name: "password",
-        label: "Enter your password",
-        type: "password",
-        value: "",
-    },
-    {
-        name: "phone",
-        label: "Enter your phone number",
+        name: "new_password",
+        label: "Enter your new password",
         type: "text",
         value: "",
     },
-
     {
-        name: "image",
-        label: "Upload your image",
-        type: "file",
-        value: null,
-        multiple: false,
-    },
-
-
-    {
-        name: "status",
-        label: "Select default status",
-        type: "select",
+        name: "confirm_password",
+        label: "Enter your confirm password",
+        type: "text",
         value: "",
-        multiple: false,
-        data_list: [
-            {
-                label: "Active",
-                value: "active",
-            },
-            {
-                label: "Inactive",
-                value: "inactive",
-            },
-        ],
     },
 ];

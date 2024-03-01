@@ -108,8 +108,7 @@ export const blog_setup_store = defineStore("blog_setup_store", {
 
         set_tags: async function (item) {
             if (item == "empty") {
-
-                this.set_categories_data = [];
+                this.set_blog_tags = [];
                 return false;
             }
             let is_exist = this.set_blog_tags.some((data) => data === item);
